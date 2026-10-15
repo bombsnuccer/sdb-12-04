@@ -5,7 +5,7 @@
 ### Задание 1
 Одним запросом получите информацию о магазине, в котором обслуживается более 300 покупателей.
 
-`**SQL-запрос:**`
+**SQL-запрос:**
 ```sql
 SELECT 
     s.first_name || ' ' || s.last_name AS employee_name,
@@ -20,7 +20,7 @@ GROUP BY st.store_id, s.first_name, s.last_name, c.city
 HAVING COUNT(cust.customer_id) > 300;
 ```
 
-`**Скриншот:**`
+**Скриншот:**
 ![Итог задания 1](./img/img1.png)
 
 ---
@@ -28,14 +28,14 @@ HAVING COUNT(cust.customer_id) > 300;
 ### Задание 2
 Получите количество фильмов, продолжительность которых больше средней продолжительности всех фильмов.
 
-`**SQL-запрос**`
+**SQL-запрос**
 ```sql
 SELECT COUNT(film_id) AS films_above_avg_length
 FROM film 
 WHERE length > (SELECT AVG(length) FROM film);
 ```
 
-`**Скриншот:**`
+**Скриншот:**
 ![Итог задания 2](./img/img2.png)
 
 ---
@@ -43,7 +43,7 @@ WHERE length > (SELECT AVG(length) FROM film);
 ### Задание 3
 Получите информацию, за какой месяц была получена наибольшая сумма платежей, и добавьте информацию по количеству аренд за этот месяц.
 
-`**SQL-запрос**`
+**SQL-запрос**
 ```sql
 SELECT 
     TO_CHAR(payment_date, 'YYYY-MM') AS payment_month,
@@ -55,7 +55,7 @@ ORDER BY total_amount DESC
 LIMIT 1;
 ```
 
-`**Скриншот:**`
+**Скриншот:**
 ![Итог задания 3](./img/img3.png)
 
 ---
@@ -63,7 +63,7 @@ LIMIT 1;
 ### Задание 4
 Посчитайте количество продаж, выполненных каждым продавцом. Добавьте вычисляемую колонку «Премия».
 
-`**SQL-запрос**`
+**SQL-запрос**
 ```sql
 SELECT 
     stf.staff_id,
@@ -80,7 +80,7 @@ GROUP BY stf.staff_id, stf.first_name, stf.last_name
 ORDER BY stf.staff_id;
 ```
 
-`**Скриншот:**`
+**Скриншот:**
 ![Итог задания 4](./img/img4.png)
 
 ---
@@ -88,7 +88,7 @@ ORDER BY stf.staff_id;
 ### Задание 5
 Найдите фильмы, которые ни разу не брали в аренду.
 
-`**SQL-запрос**`
+**SQL-запрос**
 ```sql
 SELECT f.title
 FROM film f
@@ -100,5 +100,5 @@ WHERE NOT EXISTS (
 );
 ```
 
-`**Скриншот**`
+**Скриншот**
 ![Итог задания 5](./img/img5.png)
